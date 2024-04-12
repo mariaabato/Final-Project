@@ -10,7 +10,9 @@
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-#I will use Renpy to create a murder mystery visual novel. Ideally, the visual novel will include both background and character art, background music, mini games that bring the player closer to the killer, multiple character types that the player can interact with and create relationships with, and jumpscares during key moments of the game.
+#I will use Renpy to create a murder mystery visual novel. Ideally, the visual novel will include both background and character art
+#, background music, mini-games that bring the player closer to the killer, multiple character types that the player can interact 
+#with and create relationships with, and jumpscares during key moments of the game.
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 
@@ -32,8 +34,11 @@
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
-#A fully developed visual novel with character art, and background art, and music, incorporates 3+ mini games and has a satisfying ending. I would also incorporate jumpscares if i have the time
+#A fully developed visual novel with character art, background art, and music, incorporates 3+ mini-games and has 
+#a satisfying ending. I would also incorporate jumpscares if I have the time.
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
-#To make my visual novel, I'll need to familarize myself with Renpy and how exactly I can incorporate mini games into my game. I also need to learn how to impliment music as well.  
+#To make my visual novel, I'll need to familiarize myself with Renpy and how exactly I can incorporate mini-games into my game.
+#I also need to learn how to implement music as well. I'm also not sure how I would be able to include jumpscares so I'll need to 
+#search Renpy and other game software to find it. 
