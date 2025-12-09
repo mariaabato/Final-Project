@@ -2,7 +2,7 @@
 ### Final Project – CIS 1051
 ### Author: Maria Abato (Junior, Temple University)
 #### Link to video: https://youtu.be/3yM9YBqXCxg
-#Overview
+###Overview
 LuckyLoop+ Blackjack is a roguelike-inspired blackjack game built using Python and Pygame.  
 It combines traditional blackjack rules with:
 - Random encounters
