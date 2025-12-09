@@ -15,7 +15,7 @@ CARD_FOLDER_PATH = os.path.join("Playing Cards", "PNG-cards-1.3")
 
 TABLE_BG_FILENAME = "table_background.png"
 
-# Sound assets folder (optional)
+# Sound assets folder
 SND_FOLDER = os.path.join("assets", "sounds")
 
 
@@ -170,7 +170,6 @@ def load_card_image(rank_name, suit):
             return img
         except Exception as e:
             print("Error loading:", path, e)
-    # fallback placeholder
     surf = pygame.Surface((CARD_W, CARD_H), pygame.SRCALPHA)
     surf.fill((240,240,240))
     pygame.draw.rect(surf, (30,30,30), surf.get_rect(), 2, border_radius=8)
@@ -198,7 +197,7 @@ if CARD_BACK is None:
     pygame.draw.rect(CARD_BACK, (255,255,255), CARD_BACK.get_rect(), 2, border_radius=8)
 
 
-# Card/shoe helpers
+# Card helpers
 
 Card = namedtuple("Card", ["rank","suit","value"])
 def make_card(ridx, suit):
@@ -407,7 +406,7 @@ def deal_new_round(state: GameState):
     animate_card(p2, (SCREEN_WIDTH + 50, SCREEN_HEIGHT//2), player_card_positions(2)[1])
     animate_card(d2, (SCREEN_WIDTH + 50, -50), dealer_card_positions(2)[1], is_player=False)
 
-    # optional extra card via encounter
+    # optional extra card when encounter
     if enc and enc["effect"].get("player_extra_card"):
         card = local_shoe.draw()
         state.player_cards.append(card)
@@ -424,7 +423,7 @@ def deal_new_round(state: GameState):
     if AUDIO_AVAILABLE and SND_DING:
         SND_DING.play()
 
-    # check if we exceeded max rounds per level
+    # checking if I exceeded max rounds per level
     if state.level_round_no > state.max_rounds_per_level:
         if state.balance >= conf["threshold"]:
             # advance to next level if possible
