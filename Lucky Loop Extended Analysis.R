@@ -1,5 +1,5 @@
 # Lucky Loop+ Extended Analysis Script with Bet Era Distinction and Explanations
-# Reads results.csv and produces summary statistics, plots, and analysis
+# Reads results.csv and produces summary statistics, plots, and advanced insights
 # Author: Maria Abato
 
 # Setup
@@ -48,8 +48,7 @@ win_by_era <- results %>%
 print(win_by_era)
 
 cat("\nSummary Table Analysis:\n")
-cat("This table shows that in the Low Bet era, wins and rewards are smaller, while in the High Bet era, rewards and balance changes are much larger. It reflects the impact of increasing bets on overall game performance.\n\n")
-
+#This table shows that when I was using lower bets, wins and rewards were smaller, while when making higher bets, rewards and balance changes are much larger. It reflects the impact of increasing bets on overall game performance
 # Win rate by Level, Skill, Encounter
 win_by_level <- results %>%
   group_by(Level) %>%
@@ -97,9 +96,11 @@ loss_streaks <- results %>%
   summarise(AvgLossStreak = mean(StreakLength))
 
 cat("Average loss streak length:", loss_streaks$AvgLossStreak, "\n\n")
-cat("Longer loss streaks may indicate risky rounds or unlucky sequences. Players may want to adjust strategy if loss streaks are frequent.\n\n")
+#Longer loss streaks may indicate risky rounds or unlucky sequences. Players may want to adjust strategy if loss streaks are frequent
 
+# -------------------------
 # Plots with Interpretations
+# -------------------------
 
 # 1. Balance over time by Bet Era
 p1 <- ggplot(results, aes(x=Round, y=Balance, color=BetEra)) +
@@ -108,8 +109,7 @@ p1 <- ggplot(results, aes(x=Round, y=Balance, color=BetEra)) +
   xlab("Round") + ylab("Balance ($)")
 ggsave("balance_by_betera.png", width=8, height=4)
 p1
-cat("Interpretation: The plot shows slow growth in early low-bet rounds and larger swings in high-bet rounds, highlighting the effect of bet size on total balance.\n\n")
-
+#The plot shows slow growth in early low-bet rounds and larger swings in high-bet rounds, highlighting the effect of bet size on total balance
 # 2. Rolling average balance by Bet Era
 p2 <- ggplot(results, aes(x=Round, y=RollingBalanceEra, color=BetEra)) +
   geom_line(size=1) +
@@ -117,7 +117,7 @@ p2 <- ggplot(results, aes(x=Round, y=RollingBalanceEra, color=BetEra)) +
   xlab("Round") + ylab("Balance ($)")
 ggsave("rolling_balance_betera.png", width=8, height=4)
 p2
-cat("Interpretation: Rolling averages smooth fluctuations and show general trends. High-bet era contributes more to overall balance growth.\n\n")
+#Rolling averages smooth fluctuations and show general trends. High-bet era contributes more to overall balance growth
 
 # 3. Balance change per round by Bet Era
 p3 <- ggplot(results, aes(x=Round, y=BalanceChange, fill=BetEra)) +
@@ -127,8 +127,7 @@ p3 <- ggplot(results, aes(x=Round, y=BalanceChange, fill=BetEra)) +
   theme_minimal()
 ggsave("balance_change_betera.png", width=8, height=4)
 p3
-cat("Interpretation: Each round's gain/loss is more dramatic in high-bet rounds. Low-bet rounds have smaller, steadier changes.\n\n")
-
+#Each round's gain/loss is more dramatic in high-bet rounds. Low-bet rounds have smaller, steadier changes
 # 4. Win rate by Level
 p4 <- ggplot(win_by_level, aes(x=factor(Level), y=WinRate)) +
   geom_col(fill="skyblue") +
@@ -136,7 +135,7 @@ p4 <- ggplot(win_by_level, aes(x=factor(Level), y=WinRate)) +
   ggtitle("Win Rate by Level") + xlab("Level") + ylab("Win Rate")
 ggsave("winrate_by_level.png", width=6, height=4)
 p4
-cat("Interpretation: Shows which game levels are easier or harder to win. Higher levels may correspond to higher difficulty or tougher encounters.\n\n")
+#Shows which game levels are easier or harder to win. Higher levels may correspond to higher difficulty or tougher encounters
 
 # 5. Win rate by Skill
 p5 <- ggplot(win_by_skill, aes(x=reorder(Skill, WinRate), y=WinRate)) +
@@ -146,7 +145,7 @@ p5 <- ggplot(win_by_skill, aes(x=reorder(Skill, WinRate), y=WinRate)) +
   ggtitle("Win Rate by Skill") + xlab("Skill") + ylab("Win Rate")
 ggsave("winrate_by_skill.png", width=6, height=4)
 p5
-cat("Interpretation: Certain skills consistently yield higher win rates, indicating which strategies or player choices are most effective.\n\n")
+#Certain skills consistently yield higher win rates, indicating which strategies or player choices are most effective
 
 # 6. Win rate by Encounter
 p6 <- ggplot(win_by_encounter, aes(x=reorder(Encounter, WinRate), y=WinRate)) +
@@ -156,7 +155,7 @@ p6 <- ggplot(win_by_encounter, aes(x=reorder(Encounter, WinRate), y=WinRate)) +
   ggtitle("Win Rate by Encounter") + xlab("Encounter") + ylab("Win Rate")
 ggsave("winrate_by_encounter.png", width=6, height=4)
 p6
-cat("Interpretation: Some encounters are easier to win, while others consistently reduce win rate, highlighting riskier game events.\n\n")
+#Some encounters are easier to win, while others consistently reduce win rate, highlighting riskier game events
 
 # 7. Reward distribution
 p7 <- ggplot(results, aes(x=Reward)) +
@@ -165,7 +164,7 @@ p7 <- ggplot(results, aes(x=Reward)) +
   theme_minimal()
 ggsave("reward_distribution.png", width=6, height=4)
 p7
-cat("Interpretation: Most rounds yield small rewards (especially low-bet rounds). High-bet rounds generate larger spikes in reward.\n\n")
+#Most rounds yield small rewards (especially low-bet rounds). High-bet rounds generate larger spikes in reward
 
 # 8. Balance over time by Level
 p8 <- ggplot(results, aes(x=Round, y=Balance, color=factor(Level))) +
@@ -174,7 +173,7 @@ p8 <- ggplot(results, aes(x=Round, y=Balance, color=factor(Level))) +
   labs(color="Level")
 ggsave("balance_by_level.png", width=8, height=4)
 p8
-cat("Interpretation: Shows how different levels affect balance growth. Some levels produce faster gains than others.\n\n")
+#Shows how different levels affect balance growth. Some levels produce faster gains than others
 
 # 9. Cumulative reward over rounds
 p9 <- ggplot(results, aes(x=Round, y=CumReward)) +
@@ -182,7 +181,7 @@ p9 <- ggplot(results, aes(x=Round, y=CumReward)) +
   ggtitle("Cumulative Reward Over Rounds") + xlab("Round") + ylab("Cumulative Reward ($)")
 ggsave("cumulative_reward.png", width=8, height=4)
 p9
-cat("Interpretation: Overall gains are slow early on and accelerate in high-bet rounds. Cumulative reward emphasizes total profit across the game.\n\n")
+#Overall gains are slow early on and accelerate in high-bet rounds. Cumulative reward emphasizes total profit across the game
 
 # 10. Outcome counts by Skill
 p10 <- results %>% group_by(Skill, Result) %>% summarise(Count = n()) %>%
@@ -191,8 +190,7 @@ p10 <- results %>% group_by(Skill, Result) %>% summarise(Count = n()) %>%
   ggtitle("Outcome Counts by Skill") + xlab("Skill") + ylab("Count")
 ggsave("outcomes_by_skill.png", width=8, height=4)
 p10
-cat("Interpretation: Highlights which skills result in more wins, losses, or pushes.\n\n")
-
+#Highlights which skills result in more wins, losses, or pushes
 # 11. Average reward by Encounter
 p11 <- ggplot(reward_by_encounter, aes(x=reorder(Encounter, AvgReward), y=AvgReward)) +
   geom_col(fill="forestgreen") +
@@ -200,7 +198,7 @@ p11 <- ggplot(reward_by_encounter, aes(x=reorder(Encounter, AvgReward), y=AvgRew
   ggtitle("Average Reward by Encounter") + xlab("Encounter") + ylab("Average Reward ($)")
 ggsave("avg_reward_by_encounter.png", width=6, height=4)
 p11
-cat("Interpretation: Some encounters yield higher rewards on average. High-risk encounters may offer bigger wins.\n\n")
+#Some encounters yield higher rewards on average. High-risk encounters may offer bigger wins
 
 # 12. Win rate by Player Value
 win_by_playervalue <- results %>%
@@ -213,7 +211,7 @@ p12 <- ggplot(win_by_playervalue, aes(x=PlayerValue, y=WinRate)) +
   ggtitle("Win Rate by Player Hand Value") + xlab("Player Value") + ylab("Win Rate")
 ggsave("winrate_by_playervalue.png", width=8, height=4)
 p12
-cat("Interpretation: Player hand totals around 18-21 generally have higher win rates, as expected in blackjack strategy.\n\n")
+#Player hand totals around 18-21 generally have higher win rates, as expected in blackjack strategy
 
 # 13. Heatmap: Player vs Dealer Value Win Rate
 heatmap_data <- results %>%
@@ -226,6 +224,4 @@ p13 <- ggplot(heatmap_data, aes(x=PlayerValue, y=DealerValue, fill=WinRate)) +
   ggtitle("Win Rate Heatmap: Player vs Dealer") + xlab("Player Value") + ylab("Dealer Value")
 ggsave("heatmap_player_vs_dealer.png", width=8, height=6)
 p13
-cat("Interpretation: Heatmap shows how combinations of player and dealer hands affect winning chances. Green areas indicate favorable player totals.\n\n")
-
-cat("All analyses complete. Plots saved to working directory. Bet Era summary table provides concise comparison between early low bets and later high bets.\n")
+# The heatmap shows how combinations of player and dealer hands affect winning chances. Green areas indicate favorable player totals
