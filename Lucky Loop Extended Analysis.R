@@ -1,5 +1,5 @@
 # Lucky Loop+ Extended Analysis Script with Bet Era Distinction and Explanations
-# Reads results.csv and produces summary statistics, plots, and advanced insights
+# Reads results.csv and produces summary statistics, plots, and analysis
 # Author: Maria Abato
 
 # Setup
@@ -99,9 +99,7 @@ loss_streaks <- results %>%
 cat("Average loss streak length:", loss_streaks$AvgLossStreak, "\n\n")
 cat("Longer loss streaks may indicate risky rounds or unlucky sequences. Players may want to adjust strategy if loss streaks are frequent.\n\n")
 
-# -------------------------
 # Plots with Interpretations
-# -------------------------
 
 # 1. Balance over time by Bet Era
 p1 <- ggplot(results, aes(x=Round, y=Balance, color=BetEra)) +
