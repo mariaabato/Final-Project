@@ -38,6 +38,11 @@ The goal is to survive rounds, earn money, and advance through levels while enco
 - Card dealing sound effect
 - High-visibility HUD with balance, level, round, and goals
 
+### 
+- I also included a file I made using R Studio.
+- I used the Python code to collect the game data into a CSV file that I could analyze
+- I also included some further analysis of the graphs and what they mean for the game
+
 ---
 
 #Challenges & What I Learned
