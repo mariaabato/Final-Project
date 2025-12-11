@@ -1,6 +1,11 @@
-# Lucky Loop+ Extended Analysis Script with Bet Era Distinction and Explanations
+# Lucky Loop+ Extended Analysis 
 # Reads results.csv and produces summary statistics, plots, and advanced insights
 # Author: Maria Abato
+
+# Before you read: This data and the resulting graphs are most likely not indicative of the actual statistics of my game.
+# I just thought the concept of a game that collects the stats of players would be interesting
+# In a perfect world where this game had multiple players other than myself, players would be able to access their own data and compare it to the average data of all players
+
 
 # Setup
 setwd("/Users/mariaabato/Desktop/CIS1051 Undemoed Labs/Everything Final Project")
