@@ -12,11 +12,12 @@ It combines traditional blackjack rules with:
 - Progressive difficulty
 - Casino-style animations and audio
 
-The goal is to survive rounds, earn money, and advance through levels while encountering bonuses and challenges along the way.
+The goal is to survive rounds, earn money, and advance through levels while encountering bonuses and challenges along the way. I chose to make this type of game because I love watching and playing other card/gambling roguelikes
+like Balatro and Cloverpit. I tried not to make them too similar by using Blackjack rather than Poker rules like Balatro.
 
 ---
 
-#Gameplay Features
+# Game Features
 
 ### Blackjack Core
 - Standard blackjack logic (hit, stand, double, dealer rules)
@@ -24,7 +25,7 @@ The goal is to survive rounds, earn money, and advance through levels while enco
 
 ### Roguelike Systems
 - Skills persist across game overs
-- Balance resets but upgrades carry over
+- Balance resets, but upgrades carry over (at least I think they do)
 - Random encounters that change rules or rewards
 - Dynamic level thresholds that get harder each run
 
@@ -71,10 +72,11 @@ The goal is to survive rounds, earn money, and advance through levels while enco
 ---
 
 #AI Assistance
-Some brainstorming, design suggestions, and debugging help came from ChatGPT (OpenAI).  
+Some brainstorming, design suggestions, and a lot of debugging help came from ChatGPT (OpenAI).  
 This included:
 - Ideas for roguelike mechanics  
-- Suggestions for code structure  
+- Suggestions for code structure
+- Providing resources to figure out new concepts
 - Help finding errors and debugging
 - Understanding new ideas needed for this code
 - Writing small portions of supportive code  
