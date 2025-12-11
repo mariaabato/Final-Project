@@ -26,4 +26,4 @@ I still need to work on the UI to improve the visuals, perfect the Blackjack gam
 
 #### What problems, if any, have you encountered?
 
-I've already had problems with bugs and needed help debugging my code. The game is very intricate because I really wanted it to act like an actual roguelike and not just a Blackjack game, which makes it more complicated because it has many interconnected functions. 
+I've already had problems with bugs and needed help debugging my code. The game is very intricate because I really wanted it to act like an actual roguelike and not just a Blackjack game, which makes it more complicated because it has many interconnected functions. Also, after asking Chat GPT how long it thinks my final code will be, it said something like 700-1200 lines of code. I've never coded anything that large before, so it's a little overwhelming.  
